@@ -18,7 +18,7 @@
 		}else{
 			include 'db_conn.php';
 			$pass1=md5($pass1);
-			$query = "update users set pass = '$pass1' where id = '$id'";
+			$query = "update skn_feedback_users set pass = '$pass1' where id = '$id'";
 			$result = mysqli_query($conn,$query);
 			if ($result){
 				echo "<script>alert('Password Changed Successfully')</script>";

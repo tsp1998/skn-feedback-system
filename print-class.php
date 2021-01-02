@@ -61,7 +61,7 @@
 							<th rowspan='3' width="7%">Sr. No.</th><th rowspan='3' width="30%">Parameter</th>
 							<?php 
 								include 'db_conn.php';
-								$query = "select name,sub_code,subject from staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='t')";
+								$query = "select name,sub_code,subject from skn_feedback_staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='t')";
 								$result = mysqli_query($conn,$query);
 								if(!$result->num_rows){
 										echo "<script>alert('No Feedback for this selection...')</script>";
@@ -127,7 +127,7 @@
 									$query = '';
 									$sub = $subjects[$i];
 									$find = 'AVG('.$q_num.')';
-									$query = "SELECT $find FROM theory WHERE feedback='$fb' and sub_code='$sub' and sem='$sem' and dept='$dept' and division='$div' and year='$year'";
+									$query = "SELECT $find from skn_feedback_theory WHERE feedback='$fb' and sub_code='$sub' and sem='$sem' and dept='$dept' and division='$div' and year='$year'";
 									$result = mysqli_query($conn,$query);
 									$record = $result->fetch_assoc();
 									if($record[$find]==NULL){
@@ -180,7 +180,7 @@
 						 	<th rowspan='3' width="7%">Sr. No.</th><th class='header' rowspan='3' width="30%">Parameter</th>
 						 	<td class='seperator' colspan= <?php echo ($total_cols+2); ?> ><b>Practical Courses</b></td>
 						 	<?php 
-						 		$query = "select name,sub_code,batch,subject from staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='p')";
+						 		$query = "select name,sub_code,batch,subject from skn_feedback_staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='p')";
 								$result = mysqli_query($conn,$query);
 								 $total_cols2=$result->num_rows;
 							?>
@@ -236,7 +236,7 @@
 						 		for ($k=0; $k < strlen($batches[$i]); $k++) { 
 						 			$b = $batches[$i][$k];
 						 			if (!present($batch,$b)) {
-						 				 $query = "SELECT count(DISTINCT id) as total from practical WHERE feedback='$fb' and sem='$sem' and dept='$dept' and division='$div' and year='$year' and batch='$b'";
+						 				 $query = "SELECT count(DISTINCT id) as total from skn_feedback_practical WHERE feedback='$fb' and sem='$sem' and dept='$dept' and division='$div' and year='$year' and batch='$b'";
 										$result = mysqli_query($conn,$query);
 										$record = $result->fetch_assoc();
 										$batch[$j] = $batches[$i][$k];
@@ -286,7 +286,7 @@
 									//print_r($result);
 									//echo "<br>";
 									for ($k=0; $k < strlen($b); $k++) { 
-										$query = "SELECT $find FROM practical WHERE feedback='$fb' and sub_code='$sub' and batch = '$b[$k]' and sem='$sem' and dept='$dept' and division='$div' and year='$year'";
+										$query = "SELECT $find from skn_feedback_practical WHERE feedback='$fb' and sub_code='$sub' and batch = '$b[$k]' and sem='$sem' and dept='$dept' and division='$div' and year='$year'";
 										$result = mysqli_query($conn,$query);
 										$record = $result->fetch_assoc();
 										$total  += $record[$find];
@@ -347,7 +347,7 @@
 
 					<?php 
 							echo "<br><b><center>Total Student Participated for Feedback : <center></b>";
-							$query = "SELECT count(DISTINCT id) as total from theory WHERE feedback='$fb' and  sem='$sem' and dept='$dept' and division='$div' and year='$year'";
+							$query = "SELECT count(DISTINCT id) as total from skn_feedback_theory WHERE feedback='$fb' and  sem='$sem' and dept='$dept' and division='$div' and year='$year'";
 							$result = mysqli_query($conn,$query);
 							$record = $result->fetch_assoc();
 							echo "<span class='batch'>Theory : ".$record['total']."</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";

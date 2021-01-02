@@ -17,7 +17,7 @@
 	include 'db_conn.php';
 
 	if ($id=='admin'){
-		$query = "select * from admin";
+		$query = "select * from skn_feedback_admin";
 		$result = mysqli_query($conn,$query);
 		if($result->num_rows>0){
 			$row = $result->fetch_assoc();	
@@ -25,7 +25,7 @@
 				echo "<script>window.location='admin.php'</script>";
 		}
 	}else{
-		$query = "select * from users where id='$id'";
+		$query = "select * from skn_feedback_users where id='$id'";
 		$result = mysqli_query($conn,$query);
 		if($result->num_rows>0){
 			$row = $result->fetch_assoc();	

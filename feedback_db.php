@@ -8,7 +8,7 @@
 		echo "<script>window.location='index.html'</script>";	
  	}
  	$id = $_SESSION['id'];
- 	$query = "select * from users where id='$id'";
+ 	$query = "select * from skn_feedback_users where id='$id'";
 		$result = mysqli_query($conn,$query);
 		if($result->num_rows>0){
 			$row = $result->fetch_assoc();
@@ -88,7 +88,7 @@ if (isset($_POST['feedback'])) {
 	$id=$_SESSION['id'];
 	for ($j=0; $j <count($subjects); $j++) { 
 		$query="";
-		$query = "insert into theory values('".$id."','".$fb."','".$year."','".$class."','".$sem."','".$dept."','".$div."','".$subjects[$j]."',";
+		$query = "insert into skn_feedback_theory values('".$id."','".$fb."','".$year."','".$class."','".$sem."','".$dept."','".$div."','".$subjects[$j]."',";
 			for ($i=0; $i < 7; $i++) { 
 				$query = $query.$feedback[$i][$j].',';
 			}
@@ -100,7 +100,7 @@ if (isset($_POST['feedback'])) {
 
 	for ($j=0; $j <count($subjects2); $j++) { 
 		$query="";
-		$query = "insert into practical values('".$id."','".$fb."','".$year."','".$class."','".$sem."','".$dept."','".$div."','".$batch."','".$subjects2[$j]."',";
+		$query = "insert into skn_feedback_practical values('".$id."','".$fb."','".$year."','".$class."','".$sem."','".$dept."','".$div."','".$batch."','".$subjects2[$j]."',";
 			for ($i=0; $i < 3; $i++) { 
 				$query = $query.$feedback2[$i][$j].',';
 			}
@@ -109,7 +109,7 @@ if (isset($_POST['feedback'])) {
 	}
 
 }
-		$query = "update users set active=".(0)." where id='$id'";
+		$query = "update skn_feedback_users set active=".(0)." where id='$id'";
 		mysqli_query($conn,$query);	
 		echo "<script>alert('Thank You Feedback Submitted')</script>";
 		echo "<script>window.location='logout.php'</script>";

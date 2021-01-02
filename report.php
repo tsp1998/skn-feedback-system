@@ -32,7 +32,7 @@
 						<span class="label-input100">Academic Year</span>
 						<?php
 								include 'db_conn.php';
-								$query = "select DISTINCT year from theory";
+								$query = "select DISTINCT year from skn_feedback_theory";
 								$result = mysqli_query($conn,$query);
 								//$record = $result->fetch_assoc();
 								//echo $record['year'];

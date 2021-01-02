@@ -24,7 +24,7 @@
 
 	 include 'db_conn.php';
 
-	 	echo $query = "insert into staff values('$name','$sub_name','$sub_code','$sem','$dept','$div')";
+	 	echo $query = "insert into skn_feedback_staff values('$name','$sub_name','$sub_code','$sem','$dept','$div')";
 		$result = mysqli_query($conn,$query);
 			if($result)
 				echo "<script>alert('Staff Added')</script>";

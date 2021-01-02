@@ -19,7 +19,7 @@
 	  ?>
 	  <?php 
 		include 'db_conn.php';
-		$query = "select name,sub_code,subject from staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='t')";
+		$query = "select name,sub_code,subject from skn_feedback_staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='t')";
 		$result = mysqli_query($conn,$query);
 		if(!$result->num_rows){
 				echo "<script>alert('No Feedback for this selection...')</script>";

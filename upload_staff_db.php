@@ -27,17 +27,17 @@ $csv_file=fopen('uploads/'.$file_name, 'r');
  	 	$year = testInput($csv_record[8]);
  	
  	 		if (!empty($name)||!empty($subject)||!empty($sub_code)||!empty($sem)||!empty($dept)||!empty($division)||!empty($batch)||!empty($work)||!empty($years)) {
- 	 				$query = "select * from staff where name='$name' and subject='$subject' and sub_code='$sub_code' and sem = '$sem' and dept = '$dept' and division = '$division' and batch = '$batch' and work = '$work' and year='$year'";
+ 	 				$query = "select * from skn_feedback_staff where name='$name' and subject='$subject' and sub_code='$sub_code' and sem = '$sem' and dept = '$dept' and division = '$division' and batch = '$batch' and work = '$work' and year='$year'";
  	 					$result = mysqli_query($conn,$query);
 
  	 					if (!$result->num_rows) {
- 	 						$query = "insert into staff values('$name','$subject','$sub_code','$sem','$dept','$division','$batch','$work','$year')";
+ 	 						$query = "insert into skn_feedback_staff values('$name','$subject','$sub_code','$sem','$dept','$division','$batch','$work','$year')";
  	 							mysqli_query($conn,$query);
  	 					}
  	 	 		}
  	 	
  	}
- 	// $query = "insert into subjects values('$subject','$sub_code','$dept','$sem','$division')";
+ 	// $query = "insert into skn_feedback_subjects values('$subject','$sub_code','$dept','$sem','$division')";
  	// mysqli_query($conn,$query);
  	//print_r($csv_record).'<br>';
  }

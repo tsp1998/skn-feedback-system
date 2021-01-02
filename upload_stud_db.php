@@ -19,11 +19,11 @@ $csv_file=fopen('uploads/'.$file_name, 'r');
  	 $pass = md5(testInput($csv_record[1]));
 
  	if (!empty($id)||!empty($pass)) {
- 	 				$query = "select * from users where id='$id'";
+ 	 				$query = "select * from skn_feedback_users where id='$id'";
  	 					$result = mysqli_query($conn,$query);
 
  	 					if (!$result->num_rows) {
- 	 						 	$query = "insert into users values('$id','$pass',1)";
+ 	 						 	$query = "insert into skn_feedback_users values('$id','$pass',1)";
  	 							mysqli_query($conn,$query);
  	 					}
  	 	 		}

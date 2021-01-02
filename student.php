@@ -29,7 +29,7 @@
 					<?php 
 						include 'db_conn.php';
 						$id = $_SESSION['id'];
-						$query = "select active from users where id = '$id'";
+						$query = "select active from skn_feedback_users where id = '$id'";
 						$result = mysqli_query($conn,$query);
 						if($result->num_rows>0){
 							$record = $result->fetch_assoc();

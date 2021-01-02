@@ -10,7 +10,7 @@
 		echo "<script>window.location='index.html'</script>";	
  	}
  	$id = $_SESSION['id'];
- 	$query = "select * from users where id='$id'";
+ 	$query = "select * from skn_feedback_users where id='$id'";
 		$result = mysqli_query($conn,$query);
 		if($result->num_rows>0){
 			$row = $result->fetch_assoc();
@@ -89,7 +89,7 @@
 									$_SESSION['div'] = $div;
 									$_SESSION['batch'] = $batch;
 
-									  $query = "select name,sub_code from staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='pt' or work='t')";
+									  $query = "select name,sub_code from skn_feedback_staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='pt' or work='t')";
 									$result = mysqli_query($conn,$query);
 									if(!$result->num_rows){
 											echo "<script>alert('No Feedback for this selection...')</script>";
@@ -194,7 +194,7 @@
 							<div class="column col-sm-1">Sr. No.</div>
 							<div class="column col-sm-3">Parameter</div>
 							<?php 
-						 		$query = "select name,sub_code,batch from staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='pt' or work='p')";
+						 		$query = "select name,sub_code,batch from skn_feedback_staff where sem='$sem' and dept='$dept' and division='$div' and year='$year' and (work='tp' or work='pt' or work='p')";
 								$result = mysqli_query($conn,$query);
 								 $total_cols2=$result->num_rows;
 					 		 ?>
