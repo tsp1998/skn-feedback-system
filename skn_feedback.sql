@@ -34,7 +34,7 @@ CREATE TABLE `skn_feedback_admin` (
 -- Dumping data for table `skn_feedback_admin`
 --
 
-insert into skn_feedback_`skn_feedback_admin` (`pass`) VALUES
+insert into `skn_feedback_admin` (`pass`) VALUES
 ('3a9548634e7f47c385f9a97cb4bcc284');
 
 -- --------------------------------------------------------
