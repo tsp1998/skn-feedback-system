@@ -1,4 +1,4 @@
-<?php  
+<?php
 $servername = "sql311.epizy.com";
 $username = "epiz_27596670";
 $password = "NEFQyJPrIlRQX";

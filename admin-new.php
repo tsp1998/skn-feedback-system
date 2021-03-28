@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Admin Page</title>
 </head>
+
 <body>
 	<h1>Technical World</h1>
 	<h2>Admin Page</h2>
@@ -20,4 +22,5 @@
 		<input type="submit" name="login" value="Login">
 	</form>
 </body>
+
 </html>
