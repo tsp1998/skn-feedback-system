@@ -31,7 +31,8 @@ $csv_file=fopen('uploads/'.$file_name, 'r');
  	 					$result = mysqli_query($conn,$query);
 
  	 					if (!$result->num_rows) {
- 	 						$query = "insert into skn_feedback_staff values('$name','$subject','$sub_code','$sem','$dept','$division','$batch','$work','$year')";
+ 	 						$query = "insert into skn_feedback_staff (name, subject, sub_code, sem, dept, division, batch, work, year) values('$name','$subject','$sub_code','$sem','$dept','$division','$batch','$work','$year')";
+                            //   echo $query;
  	 							mysqli_query($conn,$query);
  	 					}
  	 	 		}
