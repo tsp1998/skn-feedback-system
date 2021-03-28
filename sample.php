@@ -7,4 +7,3 @@
 	if(mysqli_query($conn,$query))
 		echo "<script>alert('practical Truncated')</script>";
 	echo "<script>window.location='index.html'</script>";
- ?>

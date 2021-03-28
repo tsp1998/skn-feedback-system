@@ -1,10 +1,11 @@
-<?php 
-	session_start();
- ?>
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'head.php'; ?>
+
 <body>
 
 	<div class="limiter">
@@ -13,7 +14,7 @@
 				<?php include 'header.html'; ?>
 
 				<style type="text/css">
-					.link{
+					.link {
 						font-size: 18px;
 						margin: 8px;
 						font-weight: bold;
@@ -21,39 +22,39 @@
 				</style>
 
 				<br>
-				
+
 				<button class="login100-form-btn btn_upload" onclick="logout()">Log Out</button>
-				
+
 				<h3>
-				<center>Feedback 
-					<?php 
+					<center>Feedback
+						<?php
 						include 'db_conn.php';
 						$id = $_SESSION['id'];
 						$query = "select active from skn_feedback_users where id = '$id'";
-						$result = mysqli_query($conn,$query);
-						if($result->num_rows>0){
+						$result = mysqli_query($conn, $query);
+						if ($result->num_rows > 0) {
 							$record = $result->fetch_assoc();
 							echo $record['active'];
 						}
-					 ?>
-				</center>
+						?>
+					</center>
 				</h3>
 
 				<br>
 
 				<h3>
-				<center>Academic Year</center>
-				<center>
-					<?php 
+					<center>Academic Year</center>
+					<center>
+						<?php
 						date_default_timezone_set('Asia/Kolkata');
-						echo date('Y')."-".(date('Y')+1);
-					 ?>
-				</center>
+						echo date('Y') . "-" . (date('Y') + 1);
+						?>
+					</center>
 				</h3>
 
 				<form class="login100-form validate-form" action="feedback.php" method="post">
-					
-						<div class="wrap-input100 validate-input m-b-26" data-validate="Class is required">
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Class is required">
 						<span class="label-input100">Select Class</span>
 						<select name="class" class="input100">
 							<option value="-1">Select Class</option>
@@ -83,7 +84,7 @@
 
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Department is required">
 						<span class="label-input100">Department</span>
-						 <select name="dept" class="input100">
+						<select name="dept" class="input100">
 							<option value="-1">Your Department</option>
 							<option value="1">CSE</option>
 							<option value="2">Mechanical</option>
@@ -126,7 +127,7 @@
 						</button>
 					</div>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>
@@ -134,4 +135,5 @@
 	<?php include 'foot.php'; ?>
 
 </body>
+
 </html>
