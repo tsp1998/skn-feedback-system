@@ -1,3 +1,4 @@
+
 <?php
 function testInput($data)
 {
@@ -6,3 +7,4 @@ function testInput($data)
 	$data = htmlspecialchars($data);
 	return $data;
 }
+
