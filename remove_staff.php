@@ -3,7 +3,7 @@ session_start();
 if (!(isset($_SESSION['SKNFB_ADMIN']) && $_SESSION['SKNFB_ADMIN'] == 'SKNFB_ADMIN')) {
   echo "<script>window.location='index.html'</script>";
 }
-if(isset($_POST['staff_id'])){
+if (isset($_POST['staff_id'])) {
   $staff_id = $_POST['staff_id'];
 
   include 'db_conn.php';

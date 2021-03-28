@@ -1,54 +1,57 @@
-<?php 
-	session_start();
- ?>
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <?php include 'head.php'; ?>
+
 <body>
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<?php 
-					include 'header.html';
-				 ?>
+				<?php
+				include 'header.html';
+				?>
 
 				<link rel="stylesheet" type="text/css" href="css/tsp.css">
 
 				<br>
 
-				<a class='link' href ="admin.php"> Home </a> 
-				<a class='link' href ="fbstart.php">Start Feedback</a> 
-				<a class='link' href ="report.php">Report</a> 
-				
+				<a class='link' href="admin.php"> Home </a>
+				<a class='link' href="fbstart.php">Start Feedback</a>
+				<a class='link' href="report.php">Report</a>
+
 				<button class="login100-form-btn btn_upload" onclick="logout()">Log Out</button>
-				
-				<h3><center>Report</center></h3>
+
+				<h3>
+					<center>Report</center>
+				</h3>
 
 				<form class="login100-form validate-form" action="analysis.php" method="post">
-						
+
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Academic Year required">
 						<span class="label-input100">Academic Year</span>
 						<?php
-								include 'db_conn.php';
-								$query = "select DISTINCT year from skn_feedback_theory";
-								$result = mysqli_query($conn,$query);
-								//$record = $result->fetch_assoc();
-								//echo $record['year'];
-							  ?>
+						include 'db_conn.php';
+						$query = "select DISTINCT year from skn_feedback_theory";
+						$result = mysqli_query($conn, $query);
+						//$record = $result->fetch_assoc();
+						//echo $record['year'];
+						?>
 						<select name="year" class="input100">
 							<option value="-1">Select Academic Year</option>
-							<?php 
-								while ($record = $result->fetch_assoc()) {
-									$year = $record['year'];
-									echo "<option value='$year'>".$year."-".($year+1)."</option>";
-								}
-							 ?>
+							<?php
+							while ($record = $result->fetch_assoc()) {
+								$year = $record['year'];
+								echo "<option value='$year'>" . $year . "-" . ($year + 1) . "</option>";
+							}
+							?>
 						</select>
 						<span class="focus-input100"></span>
 					</div>
-					
+
 
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Class is required">
 						<span class="label-input100">Class</span>
@@ -80,7 +83,7 @@
 
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Department is required">
 						<span class="label-input100">Department</span>
-						 <select name="dept" class="input100">
+						<select name="dept" class="input100">
 							<option value="-1">Your Department</option>
 							<option value="1">CSE</option>
 							<option value="2">Mechanical</option>
@@ -122,7 +125,7 @@
 						</button>
 					</div>
 				</form>
-				
+
 			</div>
 		</div>
 	</div>
@@ -130,4 +133,5 @@
 	<?php include 'foot.php'; ?>
 
 </body>
+
 </html>
